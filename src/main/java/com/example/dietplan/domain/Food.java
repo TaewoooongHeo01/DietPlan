@@ -12,6 +12,7 @@ public class Food {
 
     @Id
     @GeneratedValue
+    @Column(name = "food_id")
     private Long id;
 
     private String foodName;
@@ -20,5 +21,12 @@ public class Food {
     private Nutri nutri;
 
     @OneToMany(mappedBy = "food")
-    private List<DietFood> dietfoods = new ArrayList<>();
+    private List<DietFood> foodDiets = new ArrayList<>();
+
+    //생성자
+    public Food() {};
+
+    public Food(String foodName) {
+        this.foodName = foodName;
+    }
 }
