@@ -2,11 +2,14 @@ package com.example.dietplan.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
 public class Diet {
 
     @Id
@@ -16,15 +19,12 @@ public class Diet {
 
     private String dietName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "diet")
+    @OneToMany(mappedBy = "diet", fetch = FetchType.LAZY)
     private List<DietFood> dietfoods = new ArrayList<>();
-
-    @OneToMany(mappedBy = "diet")
-    private List<Comments> comments = new ArrayList<>();
 
 //    private List<Bookmark> bookmarks = new ArrayList<>();
 //
@@ -38,10 +38,6 @@ public class Diet {
     public Diet() {};
 
     //연관관계 편의 메서드
-    public void addComments(Comments comments) {
-        this.comments.add(comments);
-        comments.setDiet(this);
-    }
 
     public void addFood(Food food) {
         DietFood dietFood = new DietFood();

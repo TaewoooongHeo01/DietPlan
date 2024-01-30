@@ -2,12 +2,14 @@ package com.example.dietplan.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
 public class Member {
 
     @Id
@@ -17,14 +19,14 @@ public class Member {
 
     private String username;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goalCalorie_id")
     private GoalCalorie goalCalorie;
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Diet> diets = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Comments> comments = new ArrayList<>();
 
     //private List<Bookmark> bookmarks = new ArrayList<>();

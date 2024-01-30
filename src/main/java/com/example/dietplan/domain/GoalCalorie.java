@@ -17,7 +17,7 @@ public class GoalCalorie {
     @Embedded
     private Nutri nutri;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Member member;
 
     public GoalCalorie() {};
