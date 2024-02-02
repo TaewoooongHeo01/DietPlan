@@ -9,20 +9,11 @@ import lombok.Setter;
 @Setter
 public class Nutri {
 
-    private int totalCalorie;
+    private double totalCalorie;
 
-    private int carbohydrate;
+    private double carbohydrate;
 
-    private int protein;
+    private double protein;
 
-    private int fat;
-
-    public Nutri() {};
-
-    public Nutri(int totalCalorie, int carbohydrate, int protein, int fat) {
-        this.totalCalorie = totalCalorie;
-        this.carbohydrate = carbohydrate;
-        this.protein = protein;
-        this.fat = fat;
-    }
+    private double fat;
 }

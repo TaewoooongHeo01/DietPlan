@@ -1,5 +1,8 @@
 package com.example.dietplan.domain;
 
+import com.example.dietplan.domain.calcorieEnum.ActivityLevel;
+import com.example.dietplan.domain.calcorieEnum.Gender;
+import com.example.dietplan.domain.calcorieEnum.Purpose;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +21,21 @@ public class Member {
     private Long id;
 
     private String username;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    private int age;
+
+    private int weight;
+
+    private int height;
+
+    @Enumerated(EnumType.STRING)
+    private ActivityLevel activityLevel;
+
+    @Enumerated(EnumType.STRING)
+    private Purpose purpose;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goalCalorie_id")
