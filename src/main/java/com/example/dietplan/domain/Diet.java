@@ -47,6 +47,10 @@ public class Diet {
         dietFood.setFood(food);
     }
 
+    public void addComments(Comments comments) {
+
+    }
+
     //setter
     //Member 와의 연관관계 편의메서드에서 사용하기 위한 setter
     public void setMember(Member member) {

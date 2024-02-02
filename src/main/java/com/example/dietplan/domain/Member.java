@@ -70,4 +70,9 @@ public class Member {
         this.diets.add(diet);
         diet.setMember(this);
     }
+//
+//    public void addComments(Comments comments) {
+//        this.comments.add(comments);
+//        comments.setMember(this);
+//    }
 }

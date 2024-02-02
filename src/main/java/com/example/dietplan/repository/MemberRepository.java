@@ -1,5 +1,6 @@
 package com.example.dietplan.repository;
 
+import com.example.dietplan.domain.Diet;
 import com.example.dietplan.domain.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

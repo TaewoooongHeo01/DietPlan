@@ -1,10 +1,22 @@
 package com.example.dietplan.domain;
 
+import com.example.dietplan.repository.MemberRepository;
+import com.example.dietplan.service.MemberService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SpringBootTest
+@Transactional
 public class DietFoodTest {
+
+    @Autowired
+    MemberService memberService;
 
     @Test
     void DietFoodTest() throws Exception {
@@ -28,5 +40,26 @@ public class DietFoodTest {
         assertThat(diet.getDietfoods().size()).isEqualTo(2);
         assertThat(diet.getDietfoods().size()).isEqualTo(diet2.getDietfoods().size());
         assertThat(food.getFoodDiets().size()).isEqualTo(2);
+    }
+
+    @Test
+    void MemberDietFoodTest() throws Exception {
+        //given
+        Member member = new Member();
+        Diet diet = new Diet();
+        Food foodA = new Food();
+        Food foodB = new Food();
+
+        //when
+        memberService.join(member);
+        diet.addFood(foodA);
+        diet.addFood(foodB);
+        memberService.addDiet(member.getId(), diet);
+
+        //then
+        Member findMember = memberService.findOne(member.getId());
+        Diet memberDiet = findMember.getDiets().get(0);
+        List<DietFood> dietfoods = memberDiet.getDietfoods();
+        assertThat(dietfoods.size()).isEqualTo(2);
     }
 }

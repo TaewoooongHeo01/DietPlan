@@ -1,12 +1,12 @@
 package com.example.dietplan.service;
 
+import com.example.dietplan.domain.Diet;
 import com.example.dietplan.domain.GoalCalorie;
 import com.example.dietplan.domain.Member;
 import com.example.dietplan.domain.Nutri;
 import com.example.dietplan.domain.calcorieEnum.ActivityLevel;
 import com.example.dietplan.domain.calcorieEnum.Gender;
 import com.example.dietplan.domain.calcorieEnum.Purpose;
-import com.example.dietplan.repository.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @Transactional
 class MemberServiceTest {
 
     @Autowired
     MemberService memberService;
-
-    @Autowired
-    MemberRepository memberRepository;
 
     @Test
     void joinMember() throws Exception {
@@ -106,5 +101,37 @@ class MemberServiceTest {
         System.out.println("needCalorie.getCarbohydrate() = " + (needCalorie.getCarbohydrate() / 4));
         System.out.println("needCalorie.getProtein() = " + (needCalorie.getProtein() / 4));
         System.out.println("needCalorie.getFat() = " + (needCalorie.getFat() / 9));
+    }
+
+    @Test
+    void addDiet() throws Exception {
+        //given
+        Member member = new Member();
+        Diet diet = new Diet();
+
+        //when
+        memberService.join(member);
+        memberService.addDiet(member.getId(), diet);
+
+        //then
+        Member findMember = memberService.findOne(member.getId());
+        Assertions.assertThat(findMember.getDiets().size()).isEqualTo(1);
+    }
+
+    @Test
+    void findDiets() throws Exception {
+        //given
+        Member member = new Member();
+        Diet diet1 = new Diet();
+        Diet diet2 = new Diet();
+
+        //when
+        memberService.join(member);
+        memberService.addDiet(member.getId(), diet1);
+        memberService.addDiet(member.getId(), diet2);
+
+        //then
+        List<Diet> diets = memberService.findDiets(member.getId());
+        Assertions.assertThat(diets.size()).isEqualTo(2);
     }
 }
