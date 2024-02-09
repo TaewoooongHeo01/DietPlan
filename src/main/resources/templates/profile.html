@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>test result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container pt-4" style="text-align: center; min-height: 600px;">
+    <div class="text-center">
+        <a href="/login"><p>Diet Plan</p></a>
+    </div>
+    <p class="link-body-emphasis border-bottom mx-auto"></p>
+    <div class="row row-cols-1 row-cols-md-2 g-4" style="height: 100%;">
+        <div class="col" style="height: 100%;">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title pb-4">계산결과</h5>
+                    <div class="card-text">
+                        <h2 class="pb-3">목표 칼로리: 3125kcal</h2>
+                        <h4 class="pb-2">탄수화물: 1500kcal(400g)</h4>
+                        <h4 class="pb-2">단백질: 1000kcal(100g)</h4>
+                        <h4 class="pb-2">지방: 500kcal(50g)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="height: 100%;">
+            <div class="card" style="height: 100%;">
+                <div class="card-body">
+                    <a class="btn btn-light" style="background: rgb(105, 121, 60); color:white;" href="/diet">식단 짜기</a>
+                </div>
+                <p>식단 짜는 것에 대한 추가 팁</p>
+                <p>식단 짜는 것에 대한 추가 팁</p>
+                <p>식단 짜는 것에 대한 추가 팁</p>
+            </div>
+        </div>
+        <div class="col" style="height: 100%; width: 100%">
+            <div class="card" style="height: 100%; width: 100%;">
+                <div class="card-body">
+                    식단
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

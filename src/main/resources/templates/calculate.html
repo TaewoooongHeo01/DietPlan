@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+  <title>Login</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container mt-5" style="max-width: 500px">
+  <div class="card w-100" style="background: rgb(252,249,241); border-radius: 10px">
+    <div class="card-body p-4">
+      <h3 class="card-title pb-3 pt-2">칼로리 계산기</h3>
+<!--      <p>먼저 칼로리를 계산해야 해요(alert)</p>-->
+      <form action="/profile/calculate/result" method="post">
+        <label>성별</label>
+        <div class="form-group pb-3 d-flex">
+          <div class="form-check" style="margin-right: 1rem">
+            <input class="form-check-input" type="radio" name="gender" value="male" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              남성
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" value="female" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              여성
+            </label>
+          </div>
+        </div>
+        <div class="form-group pb-3">
+          <label for="age">나이</label>
+          <input type="text" class="form-control" name="age" id="age" placeholder="" required>
+        </div>
+        <div class="form-group pb-3">
+          <label for="weight">몸무게</label>
+          <input type="text" class="form-control" name="weight" id="weight" placeholder="" required>
+        </div>
+        <div class="form-group pb-3">
+          <label for="height">키</label>
+          <input type="text" class="form-control" name="height" id="height" placeholder="" required>
+        </div>
+        <div class="form-group pb-3">
+          <label>활동량</label>
+          <select name="activityLevel" class="form-select" aria-label="Default select example">
+            <option value="VERYMANY">매우많음(하루 2번 이상 운동)</option>
+            <option value="MANY">많음(주 6~7회 운동)</option>
+            <option selected value="NORMAL">보통(주 3~4회 운동)</option>
+            <option value="LESS">적음(주 1~2회 운동)</option>
+            <option value="VERYLESS">매우적음(신체적 활동이 거의 없음)</option>
+          </select>
+        </div>
+        <div class="form-group pb-3">
+          <label>목적</label>
+          <select name="purpose" class="form-select" aria-label="Default select example">
+            <option value="GAIN">체중(근육량) 증가</option>
+            <option selected value="LOSS">체지방 감소</option>
+            <option value="MAINTAIN">유지</option>
+          </select>
+        </div>
+        <div class="pt-4">
+          <button type="submit" class="btn btn-primary btn-light" style="width: 100%; background: rgb(105, 121, 60); color: white;">계산 결과</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

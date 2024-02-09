@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container" style="max-width: 530px; text-align: center;">
+    <div class="text-center">
+        <a href="/login"><p>Diet Plan</p></a>
+    </div>
+    <p class="link-body-emphasis border-bottom mx-auto mb-5"></p>
+    <form action="/test/result" method="post">
+        <div>
+            <h3>1. 심심할 때 무언가 먹고 싶은 기분이 든다</h3>
+            <div class="d-flex justify-content-center">
+                <input type="radio" class="btn-check" value="1" name="question1" id="option1-1" autocomplete="off">
+                <label class="btn" for="option1-1">1</label>
+
+                <input type="radio" class="btn-check" value="2" name="question1" id="option1-2" autocomplete="off">
+                <label class="btn" for="option1-2">2</label>
+
+                <input type="radio" class="btn-check" value="3" name="question1" id="option1-3" autocomplete="off">
+                <label class="btn" for="option1-3">3</label>
+
+                <input type="radio" class="btn-check" value="4" name="question1" id="option1-4" autocomplete="off">
+                <label class="btn" for="option1-4">4</label>
+
+                <input type="radio" class="btn-check" value="5" name="question1" id="option1-5" autocomplete="off">
+                <label class="btn" for="option1-5">5</label>
+            </div>
+        </div>
+        <div class="pt-5">
+            <h3>2. 불안하거나 긴장되면, 식욕이 더 오르는 느낌이다</h3>
+            <div class="d-flex justify-content-center">
+                <input type="radio" class="btn-check" value="1" name="question2" id="option2-1" autocomplete="off">
+                <label class="btn" for="option2-1">1</label>
+
+                <input type="radio" class="btn-check" value="2" name="question2" id="option2-2" autocomplete="off">
+                <label class="btn" for="option2-2">2</label>
+
+                <input type="radio" class="btn-check" value="3" name="question2" id="option2-3" autocomplete="off">
+                <label class="btn" for="option2-3">3</label>
+
+                <input type="radio" class="btn-check" value="4" name="question2" id="option2-4" autocomplete="off">
+                <label class="btn" for="option2-4">4</label>
+
+                <input type="radio" class="btn-check" value="5" name="question2" id="option2-5" autocomplete="off">
+                <label class="btn" for="option2-5">5</label>
+            </div>
+        </div>
+        <p class="pt-5">
+            <button type="submit" class="btn btn-light" style="background: rgb(105, 121, 60); color:white;">결과</button>
+        </p>
+    </form>
+</div>
+</body>
+</html>
